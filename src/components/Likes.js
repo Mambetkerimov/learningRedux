@@ -17,10 +17,10 @@ const Likes = (props) => {
 
     const controlClasses = {
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         gap: "135px",
         width: "100%",
-        marginTop: "50px"
+        marginTop: "40px"
     }
 
     return (
@@ -32,7 +32,6 @@ const Likes = (props) => {
 };
 
 function mapStateToProps(state) {
-    console.log('mapStateToProps >', state);
     const { likesReducer } = state;
     return {
         likes: likesReducer.likes
