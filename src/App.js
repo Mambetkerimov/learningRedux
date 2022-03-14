@@ -1,10 +1,12 @@
+import {useSelector} from "react-redux";
 import Likes from "./components/Likes";
 import Title from "./components/Title";
 import Comments from "./redux/Comments";
-import Spin from "./components/Spin";
 
 function App() {
-  return (
+    const error = useSelector(state => state.appReducer.error);
+    console.log('error', error)
+    return (
     <div className="App" style={{display: "flex", justifyContent:"center", paddingTop: "50px"}}>
         <div className="container" style={{boxShadow: "1px 6px 8px 1px black", width: "1200px", padding: "30px", display: "flex"}}>
             <div style={{width: "50%"}}>
@@ -15,6 +17,11 @@ function App() {
                     <Likes/>
             </div>
             <div style={{width: "50%"}}>
+                {error && (
+                    <div className="error-message" style={{color: "red"}}>
+                        {error}
+                    </div>
+                )}
                 <Comments />
             </div>
         </div>
